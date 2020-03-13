@@ -1,4 +1,5 @@
 import React from 'react';
+import NewForm from './components/NewForm'
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -14,6 +15,7 @@ class App extends React.Component {
       foods: []
     }
     this.getFoods = this.getFoods.bind(this)
+    this.handleAddFood = this.handleAddFood.bind(this)
   }
   componentDidMount(){
     this.getFoods()
@@ -29,12 +31,20 @@ class App extends React.Component {
     } catch(e) {
       console.error(e);
     }
-
   }
+
+  handleAddFood(food){
+    const copyFoods = [food, ...this.state.foods]
+    this.setState({
+      foods : copyFoods
+    })
+  }
+
   render() {
     return(
       <div>
         <h1>Calorie Counter</h1>
+        <NewForm handleAddFood={this.handleAddFood}/>
         <ul>
         {
           this.state.foods.map(food => {
