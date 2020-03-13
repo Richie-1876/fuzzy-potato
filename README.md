@@ -1,3 +1,0 @@
-# fuzzy-potato
-
-# Eduardo Salcedo
