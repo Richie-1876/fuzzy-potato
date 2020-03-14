@@ -16,6 +16,7 @@ class App extends React.Component {
     }
     this.getFoods = this.getFoods.bind(this)
     this.handleAddFood = this.handleAddFood.bind(this)
+    this.deleteFood = this.deleteFood.bind(this)
   }
   componentDidMount(){
     this.getFoods()
@@ -40,6 +41,25 @@ class App extends React.Component {
     })
   }
 
+  async deleteFood(id) {
+    
+    try {
+      let response = await fetch(`${baseURL}/foods/${id}`, {
+        method: 'DELETE'
+      })
+      let data = await response.json()
+      const foundFood = this.state.foods.findIndex(food => food._id === id)
+      const copyFoods = [...this.state.foods]
+      copyFoods.splice(foundFood, 1)
+      this.setState({foods: copyFoods})
+
+
+    } catch (error) {
+      console.error(error)
+    }
+
+  }
+
   render() {
     return(
       <div>
@@ -49,7 +69,10 @@ class App extends React.Component {
         {
           this.state.foods.map(food => {
             return(
-              <li key={food._id}>{food.name}:{food.calories}{' '} calories</li>
+              <div key={food._id}>
+              <li >{food.name}:{food.calories}{' '} calories</li>
+              <button onClick={()=>{this.deleteFood(food._id)}}>DELETE</button>
+              </div>
             )
           })
         }
