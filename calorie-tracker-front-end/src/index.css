@@ -1,0 +1,71 @@
+body {
+  /* margin: 0; */
+  background-color: grey;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+h1 {
+  font-size: 3em;
+  text-decoration: underline;
+  text-shadow: 2px 2px #ff0000;
+  color: white;
+}
+ul {
+  list-style: none;
+}
+li {
+  font-size: 1.5em;
+  border: 2px solid black;
+  max-width: 50%;
+  margin: 0 auto;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 2px 4px;
+}
+.food-container {
+  margin: 30px;
+
+}
+.button {
+  margin-top: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 1.5em;
+  background-color: red;
+  box-shadow: 2px 4px;
+  border-radius: 10px;
+  border: 1px solid red;
+
+}
+input {
+  margin-right: 10px;
+  padding: 8px;
+  box-shadow: 2px 4px;
+}
+label {
+  padding: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+#create {
+  background-color: green;
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: 10px;
+}
+#edit {
+  background-color: orange;
+}
+#update {
+  background-color: green;
+}
