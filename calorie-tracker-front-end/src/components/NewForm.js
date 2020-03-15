@@ -48,6 +48,7 @@ class NewForm extends React.Component {
   render() {
     return (
       <div>
+        
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name</label>
           <input
