@@ -71,9 +71,9 @@ class App extends React.Component {
           this.state.foods.map(food => {
             return(
               <div className="food-container"key={food._id}>
-              <li >{food.name}:{' '}{food.calories}{' '} calories</li>
-              <button className="button" onClick={()=>{this.deleteFood(food._id)}}>DELETE</button>
-              <button
+                <li >{food.name}:{' '}{food.calories}{' '} calories</li>
+                <button className="button" onClick={()=>{this.deleteFood(food._id)}}>DELETE</button>
+                <button
                     onClick={() => {
                       this.handleEditButton();
                     }}
@@ -86,8 +86,10 @@ class App extends React.Component {
                       handleChange={this.handleChange}
                       food={food}
                       handleEditFood={this.handleEditFood}
-                    />
-              </div>
+                    />     ) : (
+                      " "
+                    )}
+                  </div>
             );
           })}
         </ul>
