@@ -19,6 +19,7 @@ class App extends React.Component {
     this.handleAddFood = this.handleAddFood.bind(this);
     this.deleteFood = this.deleteFood.bind(this);
     this.handleEditButton = this.handleEditButton.bind(this);
+    this.handleEditFood = this.handleEditFood.bind(this)
   }
   componentDidMount() {
     this.getFoods();
@@ -33,6 +34,11 @@ class App extends React.Component {
     } catch (e) {
       console.error(e);
     }
+  }
+  handleEditFood(copyFoods) {
+    this.setState({
+      foods: copyFoods
+    })
   }
 
   handleAddFood(food) {
@@ -85,7 +91,7 @@ class App extends React.Component {
                       foods={this.state.foods}
                       handleChange={this.handleChange}
                       food={food}
-                      handleEditFood={this.handleEditFood}
+                      handleeditfood={this.handleEditFood}
                     />     ) : (
                       " "
                     )}

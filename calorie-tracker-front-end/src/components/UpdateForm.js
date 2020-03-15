@@ -17,7 +17,7 @@ class UpdateForm extends React.Component {
     };
     this.handleUpdateFood = this.handleUpdateFood.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleEditFood = this.handleEditFood.bind(this)
+    // this.handleEditFood = this.handleEditFood.bind(this)
 }
 // handleEditFood(food) {
 //     const copyFoods = [food, ...this.state.foods];
@@ -27,28 +27,34 @@ class UpdateForm extends React.Component {
 //   }
 
   async handleUpdateFood(food) {
-    //   console.log(food)
+      console.log(food)
+      console.log(food._id);
     try {
       let response = await fetch(`${baseURL}/foods/${food._id}`, {
+
         method: "PUT",
-        body: JSON.stringify({food}),
+        body: JSON.stringify({
+          name: this.state.name,
+          calories: this.state.calories
+        }),
         headers: {
           "Content-Type": "application/json"
         }
       });
       let updatedFood = await response.json();
+      console.log(updatedFood);
       const foundFood = this.state.foods.findIndex(
         foundItem => foundItem._id === food._id
       );
       const copyFoods = [...this.state.foods];
-      
+
       copyFoods[foundFood].name = updatedFood.name;
       console.log(updatedFood.name);
+      console.log(copyFoods);
 
       copyFoods[foundFood].calories = updatedFood.calories;
-      this.setState({
-        foods: copyFoods
-      });
+      this.props.handleeditfood(copyFoods)
+      console.log(this.state.foods);
     } catch (err) {
       console.error(err);
     }
@@ -64,7 +70,7 @@ class UpdateForm extends React.Component {
         <form onSubmit={(event)=>{
             event.preventDefault()
             this.handleUpdateFood(this.props.food)
-        }}>
+        }} handleeditfood={this.props.handleEditFood}>
           <div className="row">
             <label htmlFor="name">Name</label>
             <input
@@ -84,6 +90,7 @@ class UpdateForm extends React.Component {
               type="submit"
               value="Update Food"
               className="button-primary"
+
             />
             <button className="button-red"> Don't Update </button>
           </div>

@@ -39,11 +39,13 @@ food.delete("/:id", (req, res) => {
 
 /*********************UPDATE ROUTE******************************************/
 food.put("/:id", (req, res) => {
+  console.log(req.body);
   Food.findByIdAndUpdate(
     req.params.id,
     req.body,
     {new : true},
     (error, updatedFood) =>{
+      console.log(error);
       if(error){
         res.status(400).json({ error: error.message })
       }
