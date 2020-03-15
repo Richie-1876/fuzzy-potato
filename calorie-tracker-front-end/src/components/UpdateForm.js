@@ -89,10 +89,11 @@ class UpdateForm extends React.Component {
             <input
               type="submit"
               value="Update Food"
-              className="button-primary"
+              className="button"
+              id="update"
 
             />
-            <button className="button-red"> Don't Update </button>
+
           </div>
         </form>
       </div>

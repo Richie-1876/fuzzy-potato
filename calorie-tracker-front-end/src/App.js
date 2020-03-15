@@ -37,7 +37,8 @@ class App extends React.Component {
   }
   handleEditFood(copyFoods) {
     this.setState({
-      foods: copyFoods
+      foods: copyFoods,
+      isEditing: false
     })
   }
 
@@ -79,7 +80,7 @@ class App extends React.Component {
               <div className="food-container"key={food._id}>
                 <li >{food.name}:{' '}{food.calories}{' '} calories</li>
                 <button className="button" onClick={()=>{this.deleteFood(food._id)}}>DELETE</button>
-                <button
+                <button className="button" id="edit"
                     onClick={() => {
                       this.handleEditButton();
                     }}
