@@ -68,7 +68,7 @@ class NewForm extends React.Component {
             value={this.state.calories}
             placeholder="0"
           ></input>
-          <input type="submit" value="Create" />
+          <input id="create" type="submit" value="Create" />
         </form>
       </div>
     );
