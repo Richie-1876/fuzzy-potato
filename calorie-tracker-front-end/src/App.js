@@ -42,7 +42,7 @@ class App extends React.Component {
   }
 
   async deleteFood(id) {
-    
+
     try {
       let response = await fetch(`${baseURL}/foods/${id}`, {
         method: 'DELETE'
@@ -69,9 +69,9 @@ class App extends React.Component {
         {
           this.state.foods.map(food => {
             return(
-              <div key={food._id}>
-              <li >{food.name}:{food.calories}{' '} calories</li>
-              <button onClick={()=>{this.deleteFood(food._id)}}>DELETE</button>
+              <div className="food-container"key={food._id}>
+              <li >{food.name}:{' '}{food.calories}{' '} calories</li>
+              <button className="button" onClick={()=>{this.deleteFood(food._id)}}>DELETE</button>
               </div>
             )
           })
